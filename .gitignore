@@ -1,0 +1,36 @@
+# Local environment and secrets. Keep committed example templates instead.
+.env
+.env.local
+.env.*.local
+
+# Local SQLite databases and their journal files.
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+
+# Python bytecode and caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Generated benchmark executions.
+runs/
+
+# Runtime logs.
+logs/
+*.log
+*.log.*
+
+# ---- RSL 作业产生的数据 ----
+# 原始运行记录、私有经验目录和数据库不入库，避免夹带凭据或未整理的中间结果。
+results/private/
+results/*.json
+results/*.tmp
+.embed_cache/
+
+# 如需随作业提交已检查的真实实验记录，在 results/README.md 中说明后再放开下面几行。
+# !results/learning.json
+# !results/evaluation.json
