@@ -76,7 +76,7 @@ flowchart TD
 
 ### 3.1 题目与判分
 
-任务是订单处理：按 `active` / `region` / `qty` 三个条件筛选，按 `qty` 降序、同 `qty` 按 `id` 升序排列，输出 `ids`、`count`、`total`。
+任务是问题处理：按 `active` / `region` / `qty` 三个条件筛选，按 `qty` 降序、同 `qty` 按 `id` 升序排列，输出 `ids`、`count`、`total`。
 
 数据集由固定种子生成，`orders-v1-20261022` 版本下永远是同一批题：
 
@@ -325,11 +325,9 @@ Copy-Item .env.example .env
 
 **请求超时 / 代理报错**：Windows 上系统 HTTP 代理可能把 `127.0.0.1` 也转发出去。`homework.py` 已经设置 `NO_PROXY` 且 `trust_env=False`；自己写脚本调接口时注意同样处理。
 
-**经验一直是空的**：先看 `learn` 记录里的 `reason`。`no_successful_repair` 说明模型首答就对（不需要新经验）或改也改不对（没有可提炼的东西）；`validation_rejected` 说明规则没让验证集变好——后者才是常态，见第 10 节。
-
 ---
 
 ## 11. 参考
 
-- 基础框架：[ModelRouterCourse](https://github.com/NewYearEve-Godsheep/ModelRouterCourse)（原始说明见 [`docs/ModelRouter-README.md`](docs/ModelRouter-README.md)）
+- 基础框架：[ModelRouterCourse](https://github.com/NewYearEve-Godsheep/ModelRouterCourse)
 - 课程提供的递归自我改进资料
