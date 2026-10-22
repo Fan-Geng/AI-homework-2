@@ -1,0 +1,22 @@
+providers:
+  openai:
+    base_url: ${OPENAI_BASE_URL}
+    # 单次上游请求超时（秒）。RSL 自己还有 120 秒的调用兜底。
+    timeout: 110
+    max_retries: 0
+    keys:
+      - key: ${OPENAI_KEY_1}
+        # 本地 Ollama 没有配额，把 rpm 放大；接付费接口时按自己的套餐改小。
+        # RSL 一道题最多 3 次调用，学习 + 评测一轮可能上百次，60 rpm 很容易打满，
+        # 打满后 ModelRouter 会抛 AllKeysFailedError，本轮实验就作废了。
+        rpm: 600
+    models:
+      - name: ${HOMEWORK_MODEL}
+        routing_keys: [homework]
+server:
+  host: 127.0.0.1
+  port: 8000
+auth:
+  api_key: ${ROUTER_INTERNAL_API_KEY}
+semantic_routing:
+  enabled: false
